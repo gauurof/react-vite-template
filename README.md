@@ -1,85 +1,211 @@
-# react-vite template
+# React + Vite Template
 
-This is a Vite-powered React project with TypeScript and Tailwind CSS designed for building modern applications.
+A modern React starter template powered by **Vite**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
 
-## Project Overview
+This template provides a fast, opinionated setup with modern tooling for building scalable frontend applications.
 
-This template provides a complete development environment for creating applications.
+---
 
-The application features:
-- Responsive layout with Tailwind CSS styling
-- Type-safe development with TypeScript
-- Component-based architecture with React 19
-- Modern build tooling with Vite
+## ✨ Features
 
-## Getting Started
+- ⚛️ React 19
+- ⚡ Vite for lightning-fast development
+- 📝 TypeScript with strict type checking
+- 🎨 Tailwind CSS v4
+- 🧪 Vitest + happy-dom for unit testing
+- 🔍 oxlint for extremely fast linting
+- 🎯 oxfmt for formatting
+- 🧹 knip for detecting unused files, exports, and dependencies
+- 📦 pnpm package manager
+- 🚀 Production-ready build configuration
 
-1. Install dependencies:
+---
 
-   ```bash
-   pnpm install
-   ```
+## 📦 Prerequisites
 
-2. Start development server:
+Before getting started, install:
 
-   ```bash
-   pnpm run dev
-   ```
+- Node.js **22+** (or the project's recommended version)
+- pnpm
 
-3. Build for production:
+```bash
+npm install -g pnpm
+```
 
-   ```bash
-   pnpm run build
-   ```
+---
 
-4. Lint code:
+## 🚀 Getting Started
 
-   ```bash
-   pnpm run lint
-   ```
+### Install dependencies
 
-5. Format code:
+```bash
+pnpm install
+```
 
-   ```bash
-   pnpm run format
-   ```
+### Start the development server
 
-6. Check for unused files/dependencies:
-   ```bash
-   pnpm run knip
-   ```
+```bash
+pnpm run dev
+```
 
-## Tooling
+The application will typically be available at:
 
-- **Vite**: Next generation frontend tooling
-- **React 19**: JavaScript library for building user interfaces
-- **TypeScript**: Typed JavaScript at compile time
-- **Tailwind CSS**: Utility-first CSS framework
-- **oxlint**: Fast TypeScript/JavaScript linter (replacing ESLint)
-- **oxc**: Code formatter (replacing Prettier)
-- **knip**: Unused files, dependencies and exports checker
-- **Vitest**: Testing framework with happy-dom
+```
+http://localhost:5173
+```
 
-## Project Structure
+### Create a production build
 
-- `src/` - Source code directory containing components and logic
-- `public/` - Static assets
-- `index.html` - Main HTML file
-- `src/test/` - Test files for Vitest
+```bash
+pnpm run build
+```
 
-## Configuration Notes
+### Preview the production build
 
-The project is configured to work in both WSL and Windows environments with the tools installed globally.
+```bash
+pnpm run preview
+```
 
-- **oxlint** is available globally (version: $(oxlint --version))
-- **knip** is available globally (version: $(knip --version))
+---
 
-## Features Included
+## 🛠 Available Scripts
 
-This template includes:
-- Pre-configured React 19 + TypeScript environment
-- Vite build setup with Tailwind CSS styling
-- Full testing environment (Vitest with happy-dom)
-- Linting and formatting tools (oxlint, oxfmt)
-- Dependency management with pnpm
-- Comprehensive development workflow
+| Command | Description |
+|----------|-------------|
+| `pnpm run dev` | Starts the Vite development server |
+| `pnpm run build` | Creates a production build |
+| `pnpm run preview` | Serves the production build locally |
+| `pnpm run lint` | Runs oxlint |
+| `pnpm run format` | Formats the source code using oxfmt |
+| `pnpm run test` | Runs the test suite (if configured) |
+| `pnpm run knip` | Detects unused files, exports and dependencies |
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── public/              # Static assets
+├── src/
+│   ├── assets/          # Images, icons, fonts...
+│   ├── components/      # Reusable UI components
+│   ├── hooks/           # Custom React hooks
+│   ├── test/            # Vitest setup and tests
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── index.html
+├── vite.config.ts
+├── tsconfig.json
+└── package.json
+```
+
+The exact folder structure can be adjusted to fit your project's needs.
+
+---
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+pnpm run test
+```
+
+This template uses:
+
+- **Vitest**
+- **happy-dom**
+
+---
+
+## 🎨 Styling
+
+The project uses **Tailwind CSS v4**.
+
+Global styles are located in:
+
+```
+src/index.css
+```
+
+---
+
+## 🔍 Code Quality
+
+This project replaces the traditional ESLint + Prettier setup with the much faster **Oxc** tooling.
+
+### Lint
+
+```bash
+pnpm run lint
+```
+
+### Format
+
+```bash
+pnpm run format
+```
+
+### Detect unused code
+
+```bash
+pnpm run knip
+```
+
+This helps identify:
+
+- Unused files
+- Unused exports
+- Unused dependencies
+- Unused devDependencies
+
+---
+
+## 📦 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| React 19 | UI library |
+| Vite | Build tool |
+| TypeScript | Type safety |
+| Tailwind CSS v4 | Styling |
+| Vitest | Unit testing |
+| happy-dom | Browser environment for tests |
+| oxlint | Linting |
+| oxfmt | Code formatting |
+| knip | Dead code detection |
+| pnpm | Package manager |
+
+---
+
+## 💡 Recommended VS Code Extensions
+
+- ESLint (optional)
+- Tailwind CSS IntelliSense
+- TypeScript and JavaScript Language Features
+- Vitest
+- EditorConfig (if using an `.editorconfig`)
+
+---
+
+## 🚀 Build Output
+
+Build the application:
+
+```bash
+pnpm run build
+```
+
+The optimized production files are generated in:
+
+```
+dist/
+```
+
+---
+
+## 📄 License
+
+Use this template freely for personal or commercial projects.
