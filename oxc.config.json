@@ -1,0 +1,46 @@
+{
+  "rules": {
+    "@typescript-eslint/consistent-type-assertions": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-redeclare": "error",
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/no-unnecessary-type-constraint": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/prefer-for-of": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/strict-boolean-expressions": "error",
+
+    "curly": "error",
+    "default-case-last": "error",
+    "eqeqeq": "error",
+    "no-console": "warn",
+    "no-debugger": "error",
+    "no-duplicate-imports": "error",
+    "no-redeclare": "off",
+    "no-shadow": "off",
+    "no-unreachable": "error",
+    "no-unused-vars": "off",
+    "no-var": "error",
+    "object-shorthand": "error",
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "sort-imports": "warn",
+    "no-alert": "warn",
+    "no-constructor-return": "error",
+    "no-constant-binary-expression": "error",
+    "no-constant-condition": "error",
+    "no-empty": "warn",
+    "no-fallthrough": "error",
+    "no-self-compare": "error",
+    "no-template-curly-in-string": "warn",
+    "no-unneeded-ternary": "warn",
+    "yoda": "error"
+  },
+
+  "files": {
+    "include": ["src/**/*"]
+  }
+}
