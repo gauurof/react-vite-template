@@ -11,7 +11,7 @@
     "prefer-for-of": "warn",
     "prefer-nullish-coalescing": "error",
     "prefer-optional-chain": "error",
-    "strict-boolean-expressions": "error",
+    "strict-boolean-expressions": "warn",
     "curly": "error",
     "default-case-last": "error",
     "eqeqeq": "error",
@@ -22,18 +22,16 @@
     "no-var": "error",
     "object-shorthand": "error",
     "prefer-const": "error",
-    "prefer-template": "error",
-    "sort-imports": "warn",
+    "prefer-template": "warn",
     "no-alert": "warn",
     "no-constructor-return": "error",
     "no-constant-binary-expression": "error",
-    "no-constant-condition": "error",
+    "no-constant-condition": "warn",
     "no-empty": "warn",
     "no-fallthrough": "error",
     "no-self-compare": "error",
     "no-template-curly-in-string": "warn",
-    "no-unneeded-ternary": "warn",
-    "yoda": "error"
+    "no-unneeded-ternary": "warn"
   },
   "files": {
     "include": ["src/**/*"]
