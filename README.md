@@ -88,9 +88,6 @@ pnpm run preview
 .
 ├── public/              # Static assets
 ├── src/
-│   ├── assets/          # Images, icons, fonts...
-│   ├── components/      # Reusable UI components
-│   ├── hooks/           # Custom React hooks
 │   ├── test/            # Vitest setup and tests
 │   ├── App.tsx
 │   ├── main.tsx
@@ -101,7 +98,7 @@ pnpm run preview
 └── package.json
 ```
 
-The exact folder structure can be adjusted to fit your project's needs.
+This template provides a minimal but complete setup. Developers can organize their project structure as needed.
 
 ---
 
