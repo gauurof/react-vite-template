@@ -1,28 +1,24 @@
 {
   "rules": {
-    "@typescript-eslint/consistent-type-assertions": "error",
-    "@typescript-eslint/consistent-type-imports": "error",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-non-null-assertion": "warn",
-    "@typescript-eslint/no-redeclare": "error",
-    "@typescript-eslint/no-shadow": "error",
-    "@typescript-eslint/no-unnecessary-type-constraint": "error",
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/prefer-for-of": "warn",
-    "@typescript-eslint/prefer-nullish-coalescing": "error",
-    "@typescript-eslint/prefer-optional-chain": "error",
-    "@typescript-eslint/strict-boolean-expressions": "error",
-
+    "consistent-type-assertions": "error",
+    "consistent-type-imports": "error",
+    "no-explicit-any": "warn",
+    "no-non-null-assertion": "warn",
+    "no-redeclare": "error",
+    "no-shadow": "error",
+    "no-unnecessary-type-constraint": "error",
+    "no-unused-vars": "error",
+    "prefer-for-of": "warn",
+    "prefer-nullish-coalescing": "error",
+    "prefer-optional-chain": "error",
+    "strict-boolean-expressions": "error",
     "curly": "error",
     "default-case-last": "error",
     "eqeqeq": "error",
     "no-console": "warn",
     "no-debugger": "error",
     "no-duplicate-imports": "error",
-    "no-redeclare": "off",
-    "no-shadow": "off",
     "no-unreachable": "error",
-    "no-unused-vars": "off",
     "no-var": "error",
     "object-shorthand": "error",
     "prefer-const": "error",
@@ -39,7 +35,6 @@
     "no-unneeded-ternary": "warn",
     "yoda": "error"
   },
-
   "files": {
     "include": ["src/**/*"]
   }
