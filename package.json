@@ -21,17 +21,17 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.4.0",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
-    "@vitejs/plugin-react": "^6.0.5",
-    "@vitest/ui": "^4.1.10",
-    "happy-dom": "^20.11.2",
-    "knip": "^6.32.0",
-    "oxfmt": "^0.62.0",
-    "oxlint": "^1.77.0",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/ui": "^4.1.11",
+    "happy-dom": "^20.12.0",
+    "knip": "^6.33.0",
+    "oxfmt": "^0.65.0",
+    "oxlint": "^1.80.0",
     "typescript": "^7.0.2",
-    "vite": "^8.2.1",
-    "vitest": "^4.1.10"
+    "vite": "^8.2.2",
+    "vitest": "^4.1.11"
   }
 }
