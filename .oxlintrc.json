@@ -4,9 +4,9 @@
     "consistent-type-imports": "error",
     "no-explicit-any": "warn",
     "no-non-null-assertion": "warn",
+    "no-unnecessary-type-constraint": "error",
     "no-redeclare": "error",
     "no-shadow": "error",
-    "no-unnecessary-type-constraint": "error",
     "no-unused-vars": "error",
     "prefer-for-of": "warn",
     "prefer-nullish-coalescing": "error",
@@ -32,8 +32,5 @@
     "no-self-compare": "error",
     "no-template-curly-in-string": "warn",
     "no-unneeded-ternary": "warn"
-  },
-  "files": {
-    "include": ["src/**/*"]
   }
 }

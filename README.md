@@ -25,7 +25,7 @@ This template provides a fast, opinionated setup with modern tooling for buildin
 
 Before getting started, install:
 
-- Node.js **22+** (or the project's recommended version)
+- Node.js **24** (see `.nvmrc`)
 - pnpm
 
 ```bash
@@ -77,7 +77,8 @@ pnpm run preview
 | `pnpm run preview` | Serves the production build locally |
 | `pnpm run lint` | Runs oxlint |
 | `pnpm run format` | Formats the source code using oxfmt |
-| `pnpm run test` | Runs the test suite (if configured) |
+| `pnpm run test` | Runs the test suite with Vitest |
+| `pnpm run typecheck` | Type-checks all projects with `tsc -b` |
 | `pnpm run knip` | Detects unused files, exports and dependencies |
 
 ---
@@ -86,19 +87,31 @@ pnpm run preview
 
 ```
 .
-├── public/              # Static assets
+├── public/              # Static assets (favicon, etc.)
 ├── src/
-│   ├── test/            # Vitest setup and tests
+│   ├── test/            # Vitest tests
+│   │   ├── sample.test.ts
+│   │   └── vitest-setup.test.ts
 │   ├── App.tsx
 │   ├── main.tsx
-│   └── index.css
+│   ├── index.css
+│   └── vite-env.d.ts
 ├── index.html
 ├── vite.config.ts
-├── tsconfig.json
+├── vitest.config.ts
+├── tsconfig.json        # Solution-style, references tsconfig.app.json + tsconfig.node.json
 └── package.json
 ```
 
 This template provides a minimal but complete setup. Developers can organize their project structure as needed.
+
+### Path alias
+
+The `@` alias points to `src/` (configured in `vite.config.ts` and `tsconfig.app.json`):
+
+```ts
+import { App } from "@/App";
+```
 
 ---
 
@@ -179,11 +192,11 @@ This helps identify:
 
 ## 💡 Recommended VS Code Extensions
 
-- ESLint (optional)
-- Tailwind CSS IntelliSense
-- TypeScript and JavaScript Language Features
-- Vitest
-- EditorConfig (if using an `.editorconfig`)
+Recommended via `.vscode/extensions.json`:
+
+- Tailwind CSS IntelliSense (`bradlc.vscode-tailwindcss`)
+- Vitest (`vitest.explorer`)
+- EditorConfig for VS Code (`editorconfig.editorconfig`)
 
 ---
 
