@@ -12,7 +12,7 @@ This template provides a fast, opinionated setup with modern tooling for buildin
 - ⚡ Vite for lightning-fast development
 - 📝 TypeScript with strict type checking
 - 🎨 Tailwind CSS v4
-- 🧪 Vitest + happy-dom for unit testing
+- 🧪 Vitest + happy-dom + Testing Library for unit testing
 - 🔍 oxlint for extremely fast linting
 - 🎯 oxfmt for formatting
 - 🧹 knip for detecting unused files, exports, and dependencies
@@ -26,11 +26,7 @@ This template provides a fast, opinionated setup with modern tooling for buildin
 Before getting started, install:
 
 - Node.js **24** (see `.nvmrc`)
-- pnpm
-
-```bash
-npm install -g pnpm
-```
+- pnpm (pinned via `packageManager` in `package.json`; enable with `corepack enable`)
 
 ---
 
@@ -41,6 +37,10 @@ npm install -g pnpm
 ```bash
 pnpm install
 ```
+
+> **Note:** Install `node_modules` on the OS where you run the project.
+> Optional native dependencies (e.g. oxlint, oxfmt, esbuild) are platform-specific —
+> a Windows install does not work under WSL or Linux, and vice versa.
 
 ### Start the development server
 
@@ -77,6 +77,7 @@ pnpm run preview
 | `pnpm run preview` | Serves the production build locally |
 | `pnpm run lint` | Runs oxlint |
 | `pnpm run format` | Formats the source code using oxfmt |
+| `pnpm run format:check` | Fails on files that need formatting (used in CI) |
 | `pnpm run test` | Runs the test suite with Vitest |
 | `pnpm run typecheck` | Type-checks all projects with `tsc -b` |
 | `pnpm run knip` | Detects unused files, exports and dependencies |
@@ -90,12 +91,10 @@ pnpm run preview
 ├── public/              # Static assets (favicon, etc.)
 ├── src/
 │   ├── test/            # Vitest tests
-│   │   ├── sample.test.ts
-│   │   └── vitest-setup.test.ts
+│   │   └── App.test.tsx
 │   ├── App.tsx
 │   ├── main.tsx
-│   ├── index.css
-│   └── vite-env.d.ts
+│   └── index.css
 ├── index.html
 ├── vite.config.ts
 ├── vitest.config.ts
@@ -127,6 +126,7 @@ This template uses:
 
 - **Vitest**
 - **happy-dom**
+- **@testing-library/react** (see `src/test/App.test.tsx`)
 
 ---
 
@@ -183,6 +183,7 @@ This helps identify:
 | Tailwind CSS v4 | Styling |
 | Vitest | Unit testing |
 | happy-dom | Browser environment for tests |
+| @testing-library/react | Component testing helpers |
 | oxlint | Linting |
 | oxfmt | Code formatting |
 | knip | Dead code detection |
