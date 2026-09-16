@@ -1,15 +1,13 @@
-import { fileURLToPath } from "node:url";
+import { mergeConfig } from "vite";
+import viteConfig from "./vite.config";
 import { defineConfig } from "vitest/config";
-import react from "@vitejs/plugin-react";
 
-export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    test: {
+      environment: "happy-dom",
+      setupFiles: ["./src/test/setup.ts"],
     },
-  },
-  test: {
-    environment: "happy-dom",
-  },
-});
+  }),
+);

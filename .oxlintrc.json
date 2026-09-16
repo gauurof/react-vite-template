@@ -1,4 +1,14 @@
 {
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["unicorn", "typescript", "oxc", "react", "jsx-a11y"],
+  "options": {
+    "typeAware": true
+  },
+  "settings": {
+    "react": {
+      "version": "19"
+    }
+  },
   "rules": {
     "consistent-type-assertions": "error",
     "consistent-type-imports": "error",

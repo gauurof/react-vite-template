@@ -5,16 +5,20 @@
   "type": "module",
   "packageManager": "pnpm@12.3.4",
   "engines": {
-    "node": ">=24.0.0 <25.0.0"
+    "node": "=24"
   },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "oxlint src --fix",
+    "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm knip",
+    "lint": "oxlint src",
+    "lint:fix": "oxlint src --fix",
     "format": "oxfmt src",
     "format:check": "oxfmt --check src",
     "typecheck": "tsc -b",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "fix": "pnpm lint:fix && pnpm format",
     "preview": "vite preview",
     "knip": "knip"
   },
@@ -25,15 +29,18 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
+    "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
     "@types/node": "^24.10.4",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
+    "@vitest/coverage-v8": "^5.0.0",
     "happy-dom": "^20.14.0",
     "knip": "^6.34.0",
     "oxfmt": "^0.66.0",
     "oxlint": "^1.81.0",
+    "oxlint-tsgolint": "^7.0.2001",
     "typescript": "^7.0.2",
     "vite": "^8.2.2",
     "vitest": "^5.0.0"
