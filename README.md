@@ -26,11 +26,11 @@ This template provides a fast, opinionated setup with modern tooling for buildin
 Before getting started, install:
 
 - Node.js **24** (see `.nvmrc`)
-- pnpm **12.3.4** (pinned via `packageManager` in `package.json`)
+- pnpm **12.4.2** (pinned via `packageManager` in `package.json`)
 
 ### Bootstrapping pnpm
 
-If pnpm is not installed yet, enable **Corepack** (bundled with Node.js 24). It reads the `packageManager` field and fetches exactly pnpm 12.3.4 for you:
+If pnpm is not installed yet, enable **Corepack** (bundled with Node.js 24). It reads the `packageManager` field and fetches exactly pnpm 12.4.2 for you:
 
 ```bash
 corepack enable
