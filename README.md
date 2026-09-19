@@ -26,7 +26,24 @@ This template provides a fast, opinionated setup with modern tooling for buildin
 Before getting started, install:
 
 - Node.js **24** (see `.nvmrc`)
-- pnpm (pinned via `packageManager` in `package.json`; enable with `corepack enable`)
+- pnpm **12.3.4** (pinned via `packageManager` in `package.json`)
+
+### Bootstrapping pnpm
+
+If pnpm is not installed yet, enable **Corepack** (bundled with Node.js 24). It reads the `packageManager` field and fetches exactly pnpm 12.3.4 for you:
+
+```bash
+corepack enable
+pnpm install
+```
+
+The `engines.pnpm` pin plus `.npmrc` (`engine-strict=true`) make pnpm **fail fast** on a version mismatch instead of corrupting `node_modules`. To use a newer pnpm, update `packageManager` and `engines.pnpm` in `package.json`.
+
+Note the "Update available!" banner pnpm prints is only an informational notice and is safe to ignore.
+
+### One OS per checkout
+
+Do not mix WSL and Windows installs for the same checkout. If you switch the OS you install on, delete `node_modules` first, then run `pnpm install`.
 
 ---
 
