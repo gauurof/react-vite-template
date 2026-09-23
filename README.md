@@ -25,7 +25,7 @@ This template provides a fast, opinionated setup with modern tooling for buildin
 
 Before getting started, install:
 
-- Node.js **24** (see `.nvmrc`)
+- Node.js **24.18.0** (see `.nvmrc`)
 - pnpm **12.4.2** (pinned via `packageManager` in `package.json`)
 
 ### Bootstrapping pnpm
