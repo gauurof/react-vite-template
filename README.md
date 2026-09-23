@@ -1,127 +1,166 @@
 # React + Vite Template
 
-A modern React starter template powered by **Vite**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
+A minimal, modern, opinionated React foundation. It gives you a small, working baseline — React 19, Vite 8, strict TypeScript, Tailwind CSS v4, Vitest, and Oxc tooling — without imposing architecture on your app.
 
-This template provides a fast, opinionated setup with modern tooling for building scalable frontend applications.
+## 💡 Why this template?
 
----
+- **Small by design.** The baseline contains only what every project needs to run, test, and build. Everything else is yours to add when (and if) your app needs it.
+- **Opinionated defaults.** Strict TypeScript, type-aware linting, pinned toolchain versions, and a single `pnpm check` command that covers lint, format, types, tests, and dead-code detection.
+- **Fast tooling.** The Oxc toolchain (oxlint + oxfmt) replaces the slower ESLint + Prettier setup, and Vite provides instant dev-server startup.
+- **Easy to adopt.** Fork it, rename it, replace `src/App.tsx`, and start building.
 
 ## ✨ Features
 
-- ⚛️ React 19
-- ⚡ Vite for lightning-fast development
-- 📝 TypeScript with strict type checking
-- 🎨 Tailwind CSS v4
-- 🧪 Vitest + happy-dom + Testing Library for unit testing
-- 🔍 oxlint for extremely fast linting
-- 🎯 oxfmt for formatting
-- 🧹 knip for detecting unused files, exports, and dependencies
-- 📦 pnpm package manager
-- 🚀 Production-ready build configuration
+- React 19 with `React.StrictMode`
+- Vite 8 dev server and optimized production builds
+- Strict TypeScript with a solution-style tsconfig (app + node projects)
+- Tailwind CSS v4 via the `@tailwindcss/vite` plugin (CSS-first, no `tailwind.config.js`)
+- Unit tests with Vitest, happy-dom, and Testing Library (plus jest-dom matchers)
+- oxlint (type-aware) for linting and oxfmt for formatting
+- knip to detect unused files, exports, and dependencies
+- `@` path alias mapped to `src/` (Vite + tsconfig)
+- pnpm with pinned Node 24.18.0 and pnpm 12.4.2 (`engines` + `engine-strict`)
+- GitHub Actions CI running `pnpm check` and `pnpm build`
 
----
+## 🛠 Tech stack
 
-## 📦 Prerequisites
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| React / react-dom | ^19.2.8 | UI library |
+| Vite | ^8.2.2 | Dev server and build tool |
+| TypeScript | ^7.0.2 | Type safety (`strict: true`) |
+| Tailwind CSS | ^4.3.3 | Styling |
+| Vitest | ^5.0.0 | Unit testing |
+| happy-dom | ^20.14.0 | Browser environment for tests |
+| @testing-library/react | ^16.3.3 | Component testing helpers |
+| @testing-library/jest-dom | ^7.0.1 | DOM matchers for Vitest |
+| oxlint | ^1.81.0 | Linting (type-aware) |
+| oxfmt | ^0.66.0 | Code formatting |
+| knip | ^6.34.0 | Unused files/exports/dependencies |
+| pnpm | 12.4.2 (pinned) | Package manager |
+| Node.js | 24.18.0 (pinned) | Runtime |
 
-Before getting started, install:
+## ✅ What's included?
 
-- Node.js **24.18.0** (see `.nvmrc`)
+- A working starter app: `src/main.tsx`, `src/App.tsx`, `src/index.css`
+- A passing sample test (`src/App.test.tsx`) and Vitest setup (`src/test/setup.ts`)
+- Build/test config: `vite.config.ts`, `vitest.config.ts`, solution-style `tsconfig.json` (references `tsconfig.app.json` + `tsconfig.node.json`)
+- Tooling config: `.oxlintrc.json`, `.oxfmtrc.json`, `knip.json`
+- Environment pinning: `.nvmrc`, `.npmrc` (`engine-strict=true`), `packageManager` field
+- GitHub Actions workflow (`.github/workflows/ci.yml`)
+- Editor and editor experience: `.editorconfig`, `.vscode/settings.json`, `.vscode/extensions.json` (recommended: Tailwind CSS IntelliSense, Vitest, EditorConfig, Oxc)
+- `LICENSE` (MIT) and a `public/` folder with `favicon.svg`
+
+## 🚫 What's intentionally not included?
+
+The template deliberately does **not** include:
+
+- **React Router** — no client-side routing
+- **Redux / Zustand** — no state-management library
+- **TanStack Query** — no server-state / data-fetching cache
+- **Axios** — no HTTP client (native `fetch` is available)
+- **Storybook** — no component workshop
+- **Playwright** — no end-to-end test setup
+- **UI framework** — no component library (plain Tailwind CSS only)
+- **Authentication** — no auth or session handling
+- **Backend** — no API, database, or server code
+
+These are deliberately omitted to keep the foundation small. A minimal baseline is easier to understand, audit, and customize — and every one of the above can be added later with `pnpm add` once your application actually needs it.
+
+## 🚀 Getting started
+
+Prerequisites:
+
+- Node.js **24.18.0** (pinned in `.nvmrc` and `engines.node`)
 - pnpm **12.4.2** (pinned via `packageManager` in `package.json`)
 
-### Bootstrapping pnpm
-
-If pnpm is not installed yet, enable **Corepack** (bundled with Node.js 24). It reads the `packageManager` field and fetches exactly pnpm 12.4.2 for you:
+Enable Corepack (bundled with Node.js 24) to get the pinned pnpm version automatically:
 
 ```bash
 corepack enable
 pnpm install
-```
-
-The `engines.pnpm` pin plus `.npmrc` (`engine-strict=true`) make pnpm **fail fast** on a version mismatch instead of corrupting `node_modules`. To use a newer pnpm, update `packageManager` and `engines.pnpm` in `package.json`.
-
-Note the "Update available!" banner pnpm prints is only an informational notice and is safe to ignore.
-
-### One OS per checkout
-
-Do not mix WSL and Windows installs for the same checkout. If you switch the OS you install on, delete `node_modules` first, then run `pnpm install`.
-
----
-
-## 🚀 Getting Started
-
-### Install dependencies
-
-```bash
-pnpm install
-```
-
-> **Note:** Install `node_modules` on the OS where you run the project.
-> Optional native dependencies (e.g. oxlint, oxfmt, esbuild) are platform-specific —
-> a Windows install does not work under WSL or Linux, and vice versa.
-
-### Start the development server
-
-```bash
 pnpm run dev
 ```
 
-The application will typically be available at:
+The dev server is available at `http://localhost:5173`.
 
-```
-http://localhost:5173
-```
+Notes:
 
-### Create a production build
+- `engines` + `.npmrc` (`engine-strict=true`) make pnpm fail fast on a Node/pnpm version mismatch.
+- Install `node_modules` on the OS where you run the project — platform-specific native binaries (oxlint, oxfmt, esbuild) are not portable between Windows, WSL, and Linux. If you switch OS, delete `node_modules` and run `pnpm install` again.
 
-```bash
-pnpm run build
-```
-
-### Preview the production build
-
-```bash
-pnpm run preview
-```
-
----
-
-## 🛠 Available Scripts
+## ⌨️ Available commands
 
 | Command | Description |
-|----------|-------------|
-| `pnpm run dev` | Starts the Vite development server |
-| `pnpm run build` | Creates a production build |
-| `pnpm run preview` | Serves the production build locally |
-| `pnpm run lint` | Runs oxlint |
-| `pnpm run format` | Formats the source code using oxfmt |
-| `pnpm run format:check` | Fails on files that need formatting (used in CI) |
-| `pnpm run test` | Runs the test suite with Vitest |
-| `pnpm run typecheck` | Type-checks all projects with `tsc -b` |
-| `pnpm run knip` | Detects unused files, exports and dependencies |
+|---------|-------------|
+| `pnpm run dev` | Start the Vite dev server |
+| `pnpm run build` | Type-check (`tsc -b`) and build for production into `dist/` |
+| `pnpm run preview` | Serve the production build locally |
+| `pnpm run check` | Run lint, format check, typecheck, tests, and knip |
+| `pnpm run lint` | Lint `src/` with oxlint |
+| `pnpm run lint:fix` | Lint `src/` with oxlint and auto-fix |
+| `pnpm run format` | Format `src/` with oxfmt |
+| `pnpm run format:check` | Fail on files that need formatting |
+| `pnpm run typecheck` | Type-check all projects with `tsc -b` |
+| `pnpm run test` | Run the test suite with Vitest |
+| `pnpm run test:coverage` | Run the test suite with coverage (`@vitest/coverage-v8`) |
+| `pnpm run fix` | `lint:fix` followed by `format` |
+| `pnpm run knip` | Detect unused files, exports, and dependencies |
 
----
+## 🧪 Testing
 
-## 📁 Project Structure
+- **Vitest** runs in the **happy-dom** environment
+- **@testing-library/react** for rendering and querying components
+- **@testing-library/jest-dom** adds DOM matchers (loaded via `src/test/setup.ts`, which also runs `cleanup` after each test)
+- Coverage is available with `pnpm run test:coverage`
+
+```bash
+pnpm run test
+```
+
+`src/App.test.tsx` contains a sample test you can use as a starting point.
+
+## 🔍 Code quality
+
+The template uses the **Oxc** toolchain instead of ESLint + Prettier:
+
+- **oxlint** — type-aware linting with the `unicorn`, `typescript`, `oxc`, `react`, `jsx-a11y`, and `vitest` plugins (see `.oxlintrc.json`)
+- **oxfmt** — code formatting (see `.oxfmtrc.json`)
+- **knip** — detects unused files, exports, dependencies, and devDependencies
+
+TypeScript runs in `strict` mode with additional strictness flags (`noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `noImplicitOverride`, ...) in `tsconfig.app.json`.
+
+Run everything at once:
+
+```bash
+pnpm run check
+```
+
+## 📁 Project structure
 
 ```
 .
-├── public/              # Static assets (favicon, etc.)
+├── .github/
+│   └── workflows/
+│       └── ci.yml             # GitHub Actions: pnpm check + pnpm build
+├── public/
+│   └── favicon.svg            # Static assets
 ├── src/
-│   ├── test/            # Vitest tests
-│   │   └── App.test.tsx
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
-├── index.html
-├── vite.config.ts
-├── vitest.config.ts
-├── tsconfig.json        # Solution-style, references tsconfig.app.json + tsconfig.node.json
-└── package.json
+│   ├── test/
+│   │   └── setup.ts           # Vitest setup (jest-dom matchers, cleanup)
+│   ├── App.test.tsx           # Sample test
+│   ├── App.tsx                # Starter app
+│   ├── index.css              # Tailwind entry point
+│   └── main.tsx               # React entry (StrictMode)
+├── index.html                 # HTML shell (title/description are placeholders)
+├── knip.json                  # knip configuration
+├── tsconfig.json              # Solution-style root (app + node references)
+├── tsconfig.app.json          # App code (strict, `@/*` paths)
+├── tsconfig.base.json         # Shared compiler options
+├── tsconfig.node.json         # Config files (vite.config.ts, vitest.config.ts)
+├── vite.config.ts             # React + Tailwind plugins, `@` alias
+└── vitest.config.ts           # Merges vite.config.ts, happy-dom + setup file
 ```
-
-This template provides a minimal but complete setup. Developers can organize their project structure as needed.
-
-### Path alias
 
 The `@` alias points to `src/` (configured in `vite.config.ts` and `tsconfig.app.json`):
 
@@ -129,111 +168,21 @@ The `@` alias points to `src/` (configured in `vite.config.ts` and `tsconfig.app
 import { App } from "@/App";
 ```
 
----
+Organize `src/` however your app needs — the template only requires that entry and test files stay where the config expects them.
 
-## 🧪 Testing
+## 🎨 Customizing the template
 
-Run the test suite:
+1. Rename the package (`name` in `package.json`) and update the title/description in `index.html`.
+2. Replace `src/App.tsx` with your application.
+3. Add libraries with `pnpm add <package>` when your app needs them (routing, state management, data fetching, UI, E2E, etc.).
+4. Keep `pnpm check` green as you grow the codebase.
 
-```bash
-pnpm run test
-```
+## 📦 Updating dependencies
 
-This template uses:
-
-- **Vitest**
-- **happy-dom**
-- **@testing-library/react** (see `src/test/App.test.tsx`)
-
----
-
-## 🎨 Styling
-
-The project uses **Tailwind CSS v4**.
-
-Global styles are located in:
-
-```
-src/index.css
-```
-
----
-
-## 🔍 Code Quality
-
-This project replaces the traditional ESLint + Prettier setup with the much faster **Oxc** tooling.
-
-### Lint
-
-```bash
-pnpm run lint
-```
-
-### Format
-
-```bash
-pnpm run format
-```
-
-### Detect unused code
-
-```bash
-pnpm run knip
-```
-
-This helps identify:
-
-- Unused files
-- Unused exports
-- Unused dependencies
-- Unused devDependencies
-
----
-
-## 📦 Tech Stack
-
-| Technology | Purpose |
-|------------|---------|
-| React 19 | UI library |
-| Vite | Build tool |
-| TypeScript | Type safety |
-| Tailwind CSS v4 | Styling |
-| Vitest | Unit testing |
-| happy-dom | Browser environment for tests |
-| @testing-library/react | Component testing helpers |
-| oxlint | Linting |
-| oxfmt | Code formatting |
-| knip | Dead code detection |
-| pnpm | Package manager |
-
----
-
-## 💡 Recommended VS Code Extensions
-
-Recommended via `.vscode/extensions.json`:
-
-- Tailwind CSS IntelliSense (`bradlc.vscode-tailwindcss`)
-- Vitest (`vitest.explorer`)
-- EditorConfig for VS Code (`editorconfig.editorconfig`)
-
----
-
-## 🚀 Build Output
-
-Build the application:
-
-```bash
-pnpm run build
-```
-
-The optimized production files are generated in:
-
-```
-dist/
-```
-
----
+- `pnpm update` — update dependencies within their semver ranges
+- `pnpm update --latest` — jump to the latest major versions, then review breaking changes
+- Node and pnpm versions are pinned in `engines`, `.nvmrc`, and the `packageManager` field. To change them, update all three together; Corepack will pick up the new pnpm version from `packageManager`.
 
 ## 📄 License
 
-Use this template freely for personal or commercial projects.
+MIT — see [LICENSE](LICENSE). Use this template freely for personal or commercial projects.
