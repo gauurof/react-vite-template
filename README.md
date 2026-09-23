@@ -89,6 +89,16 @@ Notes:
 - `engines` + `.npmrc` (`engine-strict=true`) make pnpm fail fast on a Node/pnpm version mismatch.
 - Install `node_modules` on the OS where you run the project — platform-specific native binaries (oxlint, oxfmt, esbuild) are not portable between Windows, WSL, and Linux. If you switch OS, delete `node_modules` and run `pnpm install` again.
 
+## 📦 Why pnpm?
+
+This template uses pnpm instead of npm for three reasons:
+
+- **Fast, disk-efficient installs** — pnpm keeps packages in a global content-addressable store and hard-links them into `node_modules`, so installs are quick even when projects share dependencies.
+- **Strict dependency model** — only explicitly declared dependencies are reachable from your code, which prevents silently relying on transitive ("phantom") packages.
+- **Consistency** — the pnpm version is pinned via the `packageManager` field in `package.json` (picked up automatically by Corepack) and `engines`, so local development and CI always use the same version.
+
+If you prefer npm, you can switch package managers, but this template is tested and maintained with pnpm.
+
 ## ⌨️ Available commands
 
 | Command | Description |
@@ -177,7 +187,7 @@ Organize `src/` however your app needs — the template only requires that entry
 3. Add libraries with `pnpm add <package>` when your app needs them (routing, state management, data fetching, UI, E2E, etc.).
 4. Keep `pnpm check` green as you grow the codebase.
 
-## 📦 Updating dependencies
+## 🔄 Updating dependencies
 
 - `pnpm update` — update dependencies within their semver ranges
 - `pnpm update --latest` — jump to the latest major versions, then review breaking changes
