@@ -2,7 +2,7 @@
   "recommendations": [
     "bradlc.vscode-tailwindcss",
     "vitest.explorer",
-    "editorconfig.editorconfig",
-    "oxc.oxc"
+    "EditorConfig.EditorConfig",
+    "oxc.oxc-vscode"
   ]
 }
