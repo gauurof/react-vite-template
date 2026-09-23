@@ -9,6 +9,7 @@
       "@/*": ["./src/*"]
     },
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "useDefineForClassFields": true,
     "resolveJsonModule": true,
     "noFallthroughCasesInSwitch": true,
