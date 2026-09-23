@@ -7,7 +7,10 @@ describe("App", () => {
     render(<App />);
 
     expect(
-      screen.getByRole("heading", { level: 1, name: "Your app is running" }),
+      screen.getByRole("heading", {
+        level: 1,
+        name: "Your application starts here.",
+      }),
     ).toBeInTheDocument();
   });
 });
