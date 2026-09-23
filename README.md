@@ -20,7 +20,7 @@ A minimal, modern, opinionated React foundation. It gives you a small, working b
 - knip to detect unused files, exports, and dependencies
 - `@` path alias mapped to `src/` (Vite + tsconfig)
 - pnpm with pinned Node 24.18.0 and pnpm 12.4.2 (`engines` + `engine-strict`)
-- GitHub Actions CI running `pnpm check` and `pnpm build`
+- GitHub Actions CI running lint, format, typecheck, tests, and build as parallel jobs
 
 ## 🛠 Tech stack
 
@@ -142,7 +142,7 @@ pnpm run check
 .
 ├── .github/
 │   └── workflows/
-│       └── ci.yml             # GitHub Actions: pnpm check + pnpm build
+│       └── ci.yml             # GitHub Actions: parallel check + build jobs
 ├── public/
 │   └── favicon.svg            # Static assets
 ├── src/

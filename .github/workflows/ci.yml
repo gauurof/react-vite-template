@@ -12,6 +12,10 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        command: [lint, "format:check", typecheck, test, build]
     steps:
       - uses: actions/checkout@v4
 
@@ -23,5 +27,4 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm check
-      - run: pnpm build
+      - run: pnpm ${{ matrix.command }}
