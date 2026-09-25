@@ -19,26 +19,26 @@ A minimal, modern, opinionated React foundation. It gives you a small, working b
 - oxlint (type-aware) for linting and oxfmt for formatting
 - knip to detect unused files, exports, and dependencies
 - `@` path alias mapped to `src/` (Vite + tsconfig)
-- pnpm with pinned Node 24.18.0 and pnpm 12.4.2 (`engines` + `engine-strict`)
-- GitHub Actions CI running lint, format, typecheck, tests, and build as parallel jobs
+- pnpm with Node 24.x support and pnpm 12.4.2 pinned (`engines` + `engine-strict`)
+- GitHub Actions CI running lint, format, typecheck, tests (with enforced coverage), and build as parallel jobs
 
 ## 🛠 Tech stack
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| React / react-dom | ^19.2.8 | UI library |
-| Vite | ^8.2.2 | Dev server and build tool |
-| TypeScript | ^7.0.2 | Type safety (`strict: true`) |
-| Tailwind CSS | ^4.3.3 | Styling |
-| Vitest | ^5.0.0 | Unit testing |
-| happy-dom | ^20.14.0 | Browser environment for tests |
-| @testing-library/react | ^16.3.3 | Component testing helpers |
-| @testing-library/jest-dom | ^7.0.1 | DOM matchers for Vitest |
-| oxlint | ^1.81.0 | Linting (type-aware) |
-| oxfmt | ^0.66.0 | Code formatting |
-| knip | ^6.34.0 | Unused files/exports/dependencies |
-| pnpm | 12.4.2 (pinned) | Package manager |
-| Node.js | 24.18.0 (pinned) | Runtime |
+| Technology                | Version            | Purpose                           |
+| ------------------------- | ------------------ | --------------------------------- |
+| React / react-dom         | ^19.2.8            | UI library                        |
+| Vite                      | ^8.2.2             | Dev server and build tool         |
+| TypeScript                | ^7.0.2             | Type safety (`strict: true`)      |
+| Tailwind CSS              | ^4.3.3             | Styling                           |
+| Vitest                    | ^5.0.0             | Unit testing                      |
+| happy-dom                 | ^20.14.0           | Browser environment for tests     |
+| @testing-library/react    | ^16.3.3            | Component testing helpers         |
+| @testing-library/jest-dom | ^7.0.1             | DOM matchers for Vitest           |
+| oxlint                    | ^1.81.0            | Linting (type-aware)              |
+| oxfmt                     | ^0.66.0            | Code formatting                   |
+| knip                      | ^6.34.0            | Unused files/exports/dependencies |
+| pnpm                      | 12.4.2 (pinned)    | Package manager                   |
+| Node.js                   | 24.x (any Node 24) | Runtime                           |
 
 ## ✅ What's included?
 
@@ -71,16 +71,18 @@ These are deliberately omitted to keep the foundation small. A minimal baseline 
 
 Prerequisites:
 
-- Node.js **24.18.0** (pinned in `.nvmrc` and `engines.node`)
+- Node.js **24.x** (any Node 24; major version pinned in `.nvmrc` and `engines.node`)
 - pnpm **12.4.2** (pinned via `packageManager` in `package.json`)
 
-Enable Corepack (bundled with Node.js 24) to get the pinned pnpm version automatically:
+Corepack is bundled with Node.js 24 but disabled by default (since Node 23). Enable it to get the pinned pnpm version automatically:
 
 ```bash
 corepack enable
 pnpm install
 pnpm run dev
 ```
+
+If you would rather not use Corepack, install the pinned pnpm version directly instead: `npm install -g pnpm@12.4.2`.
 
 The dev server is available at `http://localhost:5173`.
 
@@ -101,28 +103,28 @@ If you prefer npm, you can switch package managers, but this template is tested 
 
 ## ⌨️ Available commands
 
-| Command | Description |
-|---------|-------------|
-| `pnpm run dev` | Start the Vite dev server |
-| `pnpm run build` | Type-check (`tsc -b`) and build for production into `dist/` |
-| `pnpm run preview` | Serve the production build locally |
-| `pnpm run check` | Run lint, format check, typecheck, tests, and knip |
-| `pnpm run lint` | Lint `src/` with oxlint |
-| `pnpm run lint:fix` | Lint `src/` with oxlint and auto-fix |
-| `pnpm run format` | Format `src/` with oxfmt |
-| `pnpm run format:check` | Fail on files that need formatting |
-| `pnpm run typecheck` | Type-check all projects with `tsc -b` |
-| `pnpm run test` | Run the test suite with Vitest |
-| `pnpm run test:coverage` | Run the test suite with coverage (`@vitest/coverage-v8`) |
-| `pnpm run fix` | `lint:fix` followed by `format` |
-| `pnpm run knip` | Detect unused files, exports, and dependencies |
+| Command                  | Description                                                                                                                  |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm run dev`           | Start the Vite dev server                                                                                                    |
+| `pnpm run build`         | Type-check (`tsc -b`) and build for production into `dist/`                                                                  |
+| `pnpm run preview`       | Serve the production build locally                                                                                           |
+| `pnpm run check`         | Run lint, format check, typecheck, tests, and knip                                                                           |
+| `pnpm run lint`          | Lint all project TypeScript files with oxlint (`src/` + config files; `node_modules`/`dist` ignored)                         |
+| `pnpm run lint:fix`      | Lint all project TypeScript files with oxlint and auto-fix                                                                   |
+| `pnpm run format`        | Format all project files with oxfmt (`node_modules`/`dist` ignored)                                                          |
+| `pnpm run format:check`  | Fail on files that need formatting                                                                                           |
+| `pnpm run typecheck`     | Type-check all projects with `tsc -b`                                                                                        |
+| `pnpm run test`          | Run the test suite with Vitest                                                                                               |
+| `pnpm run test:coverage` | Run the test suite with coverage (`@vitest/coverage-v8`); fails if coverage falls below the thresholds in `vitest.config.ts` |
+| `pnpm run fix`           | `lint:fix` followed by `format`                                                                                              |
+| `pnpm run knip`          | Detect unused files, exports, and dependencies                                                                               |
 
 ## 🧪 Testing
 
 - **Vitest** runs in the **happy-dom** environment
 - **@testing-library/react** for rendering and querying components
 - **@testing-library/jest-dom** adds DOM matchers (loaded via `src/test/setup.ts`, which also runs `cleanup` after each test)
-- Coverage is available with `pnpm run test:coverage`
+- Coverage is enforced with `pnpm run test:coverage` — minimum thresholds (statements, branches, functions, lines) are set in `vitest.config.ts` and the run fails when they are not met
 
 ```bash
 pnpm run test
@@ -191,7 +193,7 @@ Organize `src/` however your app needs — the template only requires that entry
 
 - `pnpm update` — update dependencies within their semver ranges
 - `pnpm update --latest` — jump to the latest major versions, then review breaking changes
-- Node and pnpm versions are pinned in `engines`, `.nvmrc`, and the `packageManager` field. To change them, update all three together; Corepack will pick up the new pnpm version from `packageManager`.
+- The Node.js major version (24.x) and the pnpm version are pinned in `engines`, `.nvmrc`, and the `packageManager` field. To change them, update all three together; Corepack will pick up the new pnpm version from `packageManager`.
 
 ## 📄 License
 
