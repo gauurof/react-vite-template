@@ -4,6 +4,25 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      tailwind:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/vite"
+      vite:
+        patterns:
+          - "vite"
+          - "@vitejs/plugin-react"
+      vitest:
+        patterns:
+          - "vitest"
+          - "@vitest/coverage-v8"
     security-updates:
       enable: true
       schedule: "daily"
